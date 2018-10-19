@@ -4,16 +4,19 @@ import './app.css';
 import socketIOClient from "socket.io-client";
 
 export default class App extends Component {
+  /*
   constructor() {
       super();
       this.state = {
         endpoint: "http://127.0.0.1:8080"
       };
     }
+    */
 
-  state = { username: null };
+  state = { list: null };
 
   componentDidMount() {
+    /*
     const { endpoint } = this.state;
     const socket = socketIOClient(endpoint);
     //listen event
@@ -22,16 +25,24 @@ export default class App extends Component {
         username:data
       })
     )
-    fetch('/api/getUsername')
+    */
+    fetch('/api/getList')
       .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
+      .then(data => this.setState({ list: data.list }));
   }
 
   render() {
-    const { username } = this.state;
+    const { list } = this.state;
     return (
       <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
+        {list ? <h1>List</h1> : <h1>Loading.. please wait!</h1>}
+        {list ? (
+                  <ul>
+                    {list.map(i => <li>{i.name}</li>)}
+                  </ul>
+                ) : null
+        }
+
       </div>
     );
   }

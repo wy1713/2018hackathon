@@ -13,8 +13,12 @@ const getLatestData = (socket)=>{
   socket.emit("dataArrive", data);
 }
 
+var list = [];
+list.push({name: "user1"});
+list.push({name: "user2"});
+
 app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
+app.get('/api/getList', (req, res) => res.send({ list: list }));
 server.listen(8080, () => console.log('Listening on port 8080!'));
 
 io.on("connection", socket => {
