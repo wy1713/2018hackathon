@@ -35,6 +35,7 @@ export default class App extends Component {
     const { list } = this.state;
     return (
       <div>
+        <h1>CSR</h1>
         {list ? <h1>List</h1> : <h1>Loading.. please wait!</h1>}
         {list ? (
                   <ul>
