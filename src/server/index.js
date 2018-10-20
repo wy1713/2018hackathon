@@ -14,10 +14,11 @@ const getLatestData = (socket)=>{
 }
 
 function getList () {
+  const n = 100;
   var list = [];
-  list.push({name: "user1"});
-  list.push({name: "user2"});
-  list.push({name: "user3"});
+  for (let i = 0; i < n; i += 1) {
+    list.push({name: "user" + (i+1)});
+  }
   return list;
 }
 
