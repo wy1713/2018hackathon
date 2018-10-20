@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './app.css';
+import Html from './Html';
 
 import socketIOClient from "socket.io-client";
 
@@ -33,18 +34,6 @@ export default class App extends Component {
 
   render() {
     const { list } = this.state;
-    return (
-      <div>
-        <h1>CSR</h1>
-        {list ? <h1>List</h1> : <h1>Loading.. please wait!</h1>}
-        {list ? (
-                  <ul>
-                    {list.map(i => <li>{i.name}</li>)}
-                  </ul>
-                ) : null
-        }
-
-      </div>
-    );
+    return Html({ list });
   }
 }

@@ -23,6 +23,7 @@ function getList () {
 }
 
 app.use(express.static('dist'));
+app.get('/csr', (req, res) => res.send({ list: getList() }));
 app.get('/api/getList', (req, res) => res.send({ list: getList() }));
 server.listen(8080, () => console.log('Listening on port 8080!'));
 
