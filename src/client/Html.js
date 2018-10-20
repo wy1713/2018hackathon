@@ -4,7 +4,7 @@
 import React from 'react';
 
 const Html = ({ list }) => <div>
-          <h1>CSR</h1>
+          <h1>CSR (Client Side Rendering)</h1>
           {list ? <h1>List</h1> : <h1>Loading.. please wait!</h1>}
           {list ? (
                     <ul>

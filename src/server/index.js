@@ -23,7 +23,7 @@ function getList () {
 }
 
 function getHtml (list) {
-  var content = '<div style="text-align: center"> <h1>SSR</h1><h1>List</h1><ul>';
+  var content = '<div style="text-align: center"> <h1>SSR (Server Side Rendering)</h1><h1>List</h1><ul>';
   list.map(function (i) {
     content += '<li>' + i.name + '</li>';
   });
