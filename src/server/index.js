@@ -15,7 +15,7 @@ const getLatestData = (socket)=>{
 
 function getList () {
   const n = 20000;
-  var list = [];
+  const list = [];
   for (let i = 0; i < n; i += 1) {
     list.push({name: "User " + (i+1)});
   }
