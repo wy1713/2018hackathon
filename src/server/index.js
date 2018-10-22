@@ -12,20 +12,7 @@ const getLatestData = (socket)=>{
   let data = Math.random();
 
   socket.emit("dataArrive", data);
-<<<<<<< HEAD
 };
-=======
-}
-
-function getList () {
-  const n = 20000;
-  const list = [];
-  for (let i = 0; i < n; i += 1) {
-    list.push({name: "User " + (i+1)});
-  }
-  return list;
-}
->>>>>>> cce8b639b8e6ae6668ddde3ded1911aedbd2e188
 
 function getHtml (list) {
   var content = '<div style="text-align: center"> <h1>SSR (Server Side Rendering)</h1><h1>List</h1><ul>';
@@ -43,8 +30,7 @@ app.get('/ssr', (req, res) => rp(url).then(function(result){
 }));
 app.get("/api/getList", (req, res) => rp(url).then(function (result) {
     res.send(JSON.parse(result));
-}));
-
+  }));
 server.listen(8080, () => console.log('Listening on port 8080!'));
 
 io.on("connection", socket => {
