@@ -31,7 +31,10 @@ export class Signin extends Component {
 
             <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           </form>
-
+          <br/>
+          <form  action='/auth/github'>
+            <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in With gitHub</button>
+          </form>
         </div>
 
       )

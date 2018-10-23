@@ -22,6 +22,8 @@
     "mongoose": "^5.3.5",
     "next": "^5.0.0",
     "passport": "^0.4.0",
+    "passport-github2": "^0.1.11",
+    "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "prop-types": "^15.6.1",
@@ -29,6 +31,7 @@
     "react-dom": "^16.5.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "request": "^2.88.0"
   },
