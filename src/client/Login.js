@@ -58,12 +58,3 @@ export class Signup extends Component{
       )
     }
 }
-
-
-
-
-
-
-
-
-

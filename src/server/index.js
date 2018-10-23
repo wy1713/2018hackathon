@@ -7,8 +7,6 @@ const os = require('os');
 const app = express();
 const session = require('express-session');
 const server = require('http').createServer(app);
-//set the socket.io
-const io = require('socket.io')(server);
 const bodyParser = require('body-parser');
 const mongoose = require ('mongoose');
 const passport = require ('passport');
@@ -24,13 +22,6 @@ mongoose.connect('mongodb://localhost:27017/2018hackathon', (error) => {
     console.log("mongodb connected");
 });
 
-const getLatestData = (socket)=>{
-  //replace this with server callback
-  let data = Math.random();
-
-  socket.emit("dataArrive", data);
-};
-
 function getHtml (list) {
   var content = '<div style="text-align: center"> <a href="http://localhost:3000/">CSR (Client Side Rendering)</a> <h1>SSR (Server Side Rendering)</h1><h2>- React, Next, Express, Node.js, FAAS</h2><h2>List (20,000 Items from Serverless Cloud FAAS)</h2><ul>';
   list.list.map(function (i) {
@@ -39,7 +30,6 @@ function getHtml (list) {
   content += '</ul></div>';
   return content;
 }
-
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -86,16 +76,8 @@ app.get("/api/getList", (req, res) => rp(url).then(function (result) {
   }));
 server.listen(8080, () => console.log('Listening on port 8080!'));
 
-io.on("connection", socket => {
-  console.log("New client connected"+socket.id);
-  //fire event
-  setInterval(()=> getLatestData(socket), 1000);
-  socket.on("disconnect", () => console.log("Client disconnected"));
-});
-
 app.get('/api/users', userController.getUsers);
 app.delete ("/api/:email", userController.deleteUser);
 app.post('/signin', userController.postLogin);
 app.post('/signup', userController.postSignup);
 app.get('/myaccount', userController.isAuthenticated, userController.getAccount);
-
