@@ -15,7 +15,7 @@ const getLatestData = (socket)=>{
 };
 
 function getHtml (list) {
-  var content = '<div style="text-align: center"> <a href="http://localhost:3000/">CSR (Client Side Rendering)</a> <h1>SSR (Server Side Rendering)</h1><h1>List (20,000 Items)</h1><ul>';
+  var content = '<div style="text-align: center"> <a href="http://localhost:3000/">CSR (Client Side Rendering)</a> <h1>SSR (Server Side Rendering)</h1><h1>List (20,000 Items from Serverless Cloud FAAS)</h1><ul>';
   list.list.map(function (i) {
     content += '<li>' + i.name + '</li>';
   });
